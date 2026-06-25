@@ -15,9 +15,9 @@ import aiohttp
 # 🔧 КОНФИГУРАЦИЯ
 # ============================================
 CONFIG = {
-    "TELEGRAM_TOKEN": "ТВОЙ_ТОКЕН_ОТ_BOTFATHER",
-    "ADMIN_ID": "ТВОЙ_TELEGRAM_ID",
-    "CRYPTO_PAY_TOKEN": "ТВОЙ_ТОКЕН_CRYPTO_PAY",
+    "TELEGRAM_TOKEN": "8966478126:AAGWyysf11NWBpd-xQAH-SpdXwHkmUDVx3w",
+    "ADMIN_ID": "1601862454",
+    "CRYPTO_PAY_TOKEN": "599141:AAz6SFo3NwujrlIEbvQnnxUDNjzGm06U4yk",
     "PRICES": {"1": 49.99, "3": 129.99, "6": 249.99, "12": 499.99},
     "SYMBOLS": ["BTCUSDT","ETHUSDT","BNBUSDT","SOLUSDT","XRPUSDT","DOGEUSDT","ADAUSDT","AVAXUSDT","DOTUSDT","LINKUSDT"],
     "CHECK_INTERVAL": 120,
@@ -146,7 +146,7 @@ init_db()
 # 💳 CRYPTO BOT
 # ============================================
 async def create_invoice(uid, months, mode):
-    if CONFIG['CRYPTO_PAY_TOKEN'] == 'ТВОЙ_ТОКЕН_CRYPTO_PAY': return None
+    if CONFIG['CRYPTO_PAY_TOKEN'] == '599141:AAz6SFo3NwujrlIEbvQnnxUDNjzGm06U4yk': return None
     amount = CONFIG['PRICES'].get(str(months), 49.99)
     try:
         async with aiohttp.ClientSession() as s:
@@ -171,7 +171,7 @@ async def create_invoice(uid, months, mode):
     return None
 
 async def check_invoice(iid):
-    if CONFIG['CRYPTO_PAY_TOKEN'] == 'ТВОЙ_ТОКЕН_CRYPTO_PAY': return False, None, None, None
+    if CONFIG['CRYPTO_PAY_TOKEN'] == '599141:AAz6SFo3NwujrlIEbvQnnxUDNjzGm06U4yk': return False, None, None, None
     try:
         async with aiohttp.ClientSession() as s:
             async with s.get("https://pay.crypt.bot/api/getInvoices",
